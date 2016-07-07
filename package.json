@@ -1,7 +1,7 @@
 {
-  "name": "jade-to-handlebars",
+  "name": "pug-to-handlebars",
   "version": "2.3.0",
-  "description": "convert jade templates to handlebars templates",
+  "description": "convert pug templates to handlebars templates",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -10,30 +10,30 @@
     "test": "tape test/test.js && semistandard | snazzy"
   },
   "bin": {
-    "jade-to-handlebars": "./bin/jade-to-handlebars.js"
+    "pug-to-handlebars": "./bin/pug-to-handlebars.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kesla/jade-to-handlebars.git"
+    "url": "git+https://github.com/kesla/pug-to-handlebars.git"
   },
   "author": "David Björklund <david.bjorklund@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kesla/jade-to-handlebars/issues"
+    "url": "https://github.com/kesla/pug-to-handlebars/issues"
   },
-  "homepage": "https://github.com/kesla/jade-to-handlebars#readme",
+  "homepage": "https://github.com/kesla/pug-to-handlebars#readme",
   "dependencies": {
-    "commander": "2.9.0",
-    "jade-lexer": "0.0.8",
-    "jade-parser": "0.0.8",
-    "js-beautify": "^1.5.10",
+    "commander": "^2.9.0",
+    "js-beautify": "^1.6.3",
+    "pug-lexer": "^2.0.2",
+    "pug-parser": "^2.0.1",
     "void-elements": "^2.0.1"
   },
   "devDependencies": {
     "handlebars": "^3.0.3",
-    "jade": "^1.11.0",
+    "pug": "^2.0.0-beta3",
     "semistandard": "^7.0.5",
-    "snazzy": "^3.0.0",
-    "tape": "^4.0.0"
+    "snazzy": "^3.0.1",
+    "tape": "^4.6.0"
   }
 }

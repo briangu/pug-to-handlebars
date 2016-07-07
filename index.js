@@ -1,7 +1,7 @@
 'use strict';
 
-var lex = require('jade-lexer');
-var parse = require('jade-parser');
+var lex = require('pug-lexer');
+var parse = require('pug-parser');
 var beautify = require('js-beautify').html;
 var walk = require('./lib/walk');
 

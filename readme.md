@@ -1,17 +1,17 @@
-# jade-to-handlebars
+# pug-to-handlebars
 
-Convert jade templates to their corresponding handlebars version.
+Convert pug templates to their corresponding handlebars version.
 
 ## Install
 
 ```shell
-npm install -g jade-to-handlebars
+npm install -g pug-to-handlebars
 ```
 
 ## Usage
 
 ```
-Usage: jade-to-handlebars [path...]
+Usage: pug-to-handlebars [path...]
 
 Options:
   -h, --help               output usage information
@@ -19,32 +19,32 @@ Options:
   -o, --out <destination>  destination folder (defaults to current directory)
 ```
 
-`*.jade` files specified at path argument will be transformed to `*.hbs` files.
+`*.pug` files specified at path argument will be transformed to `*.hbs` files.
 
 ## Examples
-Transform all `*.jade` files in current directory to `*.hbs` files at the same directory.
+Transform all `*.pug` files in current directory to `*.hbs` files at the same directory.
 ```
-$ jade-to-handlebars
-```
----
-Transform all `*.jade` files in current directory to `*.hbs` files at directory `./hbs-templates`.
-```
-$ jade-to-handlebars -o ./hbs-templates
+$ pug-to-handlebars
 ```
 ---
-Transform `./jade-templates/index.jade` file to `*.hbs` file at directory `./hbs-templates`.
+Transform all `*.pug` files in current directory to `*.hbs` files at directory `./hbs-templates`.
 ```
-$ jade-to-handlebars -o ./hbs-templates ./jade-templates/index.jade
-```
----
-Transform all `*.jade` files of `./jade-templates` directory to `*.hbs` files at the same directory.
-```
-$ jade-to-handlebars ./jade-templates
+$ pug-to-handlebars -o ./hbs-templates
 ```
 ---
-Transform multiple `*.jade` files to `*.hbs` files at directory `./hbs-templates`.
+Transform `./pug-templates/index.pug` file to `*.hbs` file at directory `./hbs-templates`.
 ```
-$ jade-to-handlebars -o ./hbs-templates ./jade-templates ./other/about.jade ./another/some-file.jade
+$ pug-to-handlebars -o ./hbs-templates ./pug-templates/index.pug
 ```
 ---
-For features that can't be translated from jade to handlebars a comment will be inserted, for example `<!-- TODO: Fix unsupported jade mixin -->`.
+Transform all `*.pug` files of `./pug-templates` directory to `*.hbs` files at the same directory.
+```
+$ pug-to-handlebars ./pug-templates
+```
+---
+Transform multiple `*.pug` files to `*.hbs` files at directory `./hbs-templates`.
+```
+$ pug-to-handlebars -o ./hbs-templates ./pug-templates ./other/about.pug ./another/some-file.pug
+```
+---
+For features that can't be translated from pug to handlebars a comment will be inserted, for example `<!-- TODO: Fix unsupported pug mixin -->`.

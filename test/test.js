@@ -3,17 +3,17 @@
 var test = require('tape');
 var toHandlebars = require('../');
 var fs = require('fs');
-var jade = require('jade');
+var pug = require('pug');
 var handlebars = require('handlebars');
 var path = require('path');
 var beautify = require('js-beautify').html;
 
 fs.readdirSync(__dirname + '/templates')
   .filter(function (filename) {
-    return path.extname(filename) === '.jade';
+    return path.extname(filename) === '.pug';
   })
   .map(function (filename) {
-    return path.basename(filename, '.jade');
+    return path.basename(filename, '.pug');
   })
   .forEach(function (name) {
     test(name, function (t) {
@@ -30,7 +30,7 @@ fs.readdirSync(__dirname + '/templates')
 function getExpected (name, locals) {
   var expectedFile = __dirname + '/expected/' + name + '.hbs';
   return fs.existsSync(expectedFile)
-    ? fs.readFileSync(expectedFile, 'utf8').trim() : runInJade(name, locals);
+    ? fs.readFileSync(expectedFile, 'utf8').trim() : runInPug(name, locals);
 }
 
 function getLocals (name) {
@@ -41,11 +41,11 @@ function getLocals (name) {
 }
 
 function runInHandlebars (name, locals) {
-  var input = fs.readFileSync(__dirname + '/templates/' + name + '.jade', 'utf8');
+  var input = fs.readFileSync(__dirname + '/templates/' + name + '.pug', 'utf8');
   return handlebars.compile(toHandlebars(input))(locals);
 }
 
-function runInJade (name, locals) {
+function runInPug (name, locals) {
   locals.doctype = 'html';
-  return jade.renderFile(__dirname + '/templates/' + name + '.jade', locals);
+  return pug.renderFile(__dirname + '/templates/' + name + '.pug', locals);
 }

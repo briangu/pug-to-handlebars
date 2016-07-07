@@ -32,14 +32,14 @@ if (program.out) {
     }
 }
 
-var isJadeFile = function (fileName) {
-    return fileName.match(/(.*)\.jade$/i) !== null;
+var isPugFile = function (fileName) {
+    return fileName.match(/(.*)\.pug$/i) !== null;
 };
 
-var convertFile = function (jadeFilename) {
-    var handlebarsName = jadeFilename.slice(0, -4) + 'hbs';
-    var file = fs.readFileSync(jadeFilename, 'utf8');
-    var handlebars = toHandlebars(file, { pretty: true, filename: jadeFilename });
+var convertFile = function (pugFilename) {
+    var handlebarsName = pugFilename.slice(0, -4) + 'hbs';
+    var file = fs.readFileSync(pugFilename, 'utf8');
+    var handlebars = toHandlebars(file, { pretty: true, filename: pugFilename });
 
     if (outputDir) {
         fs.writeFileSync(path.join(outputDir, path.basename(handlebarsName)), handlebars);
@@ -54,12 +54,12 @@ paths.forEach(function (pathName) {
         if (stats.isDirectory()) {
             var dirContent = fs.readdirSync(pathName);
             dirContent.forEach(function (file) {
-                if (fs.lstatSync(path.join(pathName, file)).isFile() && isJadeFile(file)) {
+                if (fs.lstatSync(path.join(pathName, file)).isFile() && isPugFile(file)) {
                     convertFile(path.join(pathName, file));
                 }
             });
         } else if (stats.isFile()) {
-            if (isJadeFile(pathName)) {
+            if (isPugFile(pathName)) {
                 convertFile(pathName);
             }
         }
