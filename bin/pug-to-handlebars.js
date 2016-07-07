@@ -37,7 +37,7 @@ var isPugFile = function (fileName) {
 };
 
 var convertFile = function (pugFilename) {
-    var handlebarsName = pugFilename.slice(0, -4) + 'hbs';
+    var handlebarsName = pugFilename.slice(0, -3) + 'hbs';
     var file = fs.readFileSync(pugFilename, 'utf8');
     var handlebars = toHandlebars(file, { pretty: true, filename: pugFilename });
 
